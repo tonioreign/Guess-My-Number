@@ -8,6 +8,10 @@ const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const highscore = document.querySelector('.highscore');
 const changeBackground = document.querySelector('body');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const openHowTo = document.querySelector('.how-to');
 
 // random number generator between 1 - 20
 let secretNumber = Math.floor(Math.random() * 20);
@@ -67,3 +71,21 @@ againBtn.addEventListener('click', e => {
   secretNumber = Math.floor(Math.random() * 20);
   checkInput.value = ' ';
 });
+
+//Open Modal Function
+const openModal = () => {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+//Close Modal Function
+const closeModal = () => {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+//Open Tab
+openHowTo.addEventListener('click', openModal);
+
+//Added function to Event Listener (Close tab)
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);

@@ -76,7 +76,7 @@ main {
     align-items: center;
 }
 
-.guess {
+.input {
     padding: 20px;
     width: 200px;
     font-size: 20px;

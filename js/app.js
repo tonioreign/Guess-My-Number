@@ -18,14 +18,18 @@ check.addEventListener('click', e => {
 
   if (!guess) {
     message.textContent = '⚠️ No number guessed!';
-  } else if (guess === secretNumber) {
+  }
+  // when player wins
+  else if (guess === secretNumber) {
     // only reveals secret number after getting it right or wrong
     randomNumber.textContent = secretNumber;
     message.textContent = '🙌 Correct number!';
     randomNumber.style.backgroundColor = 'lightgreen';
     randomNumber.style.width = '15rem';
     highscore.textContent = score.textContent;
-  } else if (guess > secretNumber) {
+  }
+  // when guess is higher than number
+  else if (guess > secretNumber) {
     //nested if statements to end game when score is 0
     if (score.textContent > 1) {
       message.textContent = '⬆️ Too high!';
@@ -37,7 +41,9 @@ check.addEventListener('click', e => {
       randomNumber.style.width = '15rem';
       score.textContent = 0;
     }
-  } else if (guess < secretNumber) {
+  }
+  // when guess is lower than number
+  else if (guess < secretNumber) {
     if (score.textContent > 1) {
       message.textContent = '⬇️ Too low!';
       score.textContent -= 1;
@@ -51,6 +57,7 @@ check.addEventListener('click', e => {
   }
 });
 
+// Play again function
 againBtn.addEventListener('click', e => {
   score.textContent = 20;
   message.textContent = 'Start guessing...';
